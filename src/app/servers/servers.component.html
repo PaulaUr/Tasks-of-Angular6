@@ -1,0 +1,46 @@
+<label>Task databinding :</label>
+<!-- <input
+type="text"
+class="form-control"
+(input)="onUpdateServerName($event)"> -->
+<!-- <input
+type="text"
+class="form-control"
+(input)="onUpdateServerName($event)"
+[(ngModel)]="serverName"> -->
+
+<!-- <p>{{serverName}}</p> -->
+<!-- <button class="btn btn-primary"
+[disabled]="!allowNewServer"
+(click)="onCreateServer()"> Add Server</button> -->
+<!-- <p [innerText]="allowNewServer"></p> -->
+<!-- <p>{{ serverCreationStatus }}</p> -->
+<input
+type="text"
+class="form-control"
+(input)="onUpdateUsername($event)"
+[(ngModel)]="username">
+<br>
+
+<button class="btn btn-primary"
+[disabled]="allowReset"
+(click)="onReset()"> Reset username ?</button>
+<p>{{username}}</p>
+
+<br>
+
+<button class="btn btn-primary"
+[disabled]="allowReset"
+(click)="onCreateServer()">Create username ?</button>
+<br>
+<p *ngIf="serverCreated; else noServer">Server was created, server name is  {{ username }}</p>
+<ng-template #noServer>
+<p>No server was created!</p>
+</ng-template>
+
+<!-- <button class="btn btn-primary"
+[disabled]="username === ''"
+(click)="username = ''"> Reset2 username ?</button> -->
+
+<app-server *ngFor="let server of servers"></app-server>
+<app-task-server></app-task-server>

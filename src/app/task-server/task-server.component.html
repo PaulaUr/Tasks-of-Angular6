@@ -1,0 +1,16 @@
+<button class="btn btn-primary" (click)="onShowContent()">Displaying details!</button>
+<br>
+
+<h4 *ngIf="togglePassword ; else noDisplay">
+  {{ secretPassword }}
+</h4>
+<ng-template #noDisplay>
+  <h4>there isn't any password</h4>
+</ng-template>
+<ul>
+  <li *ngFor="let count of clicksArray; let i = index"
+  [ngStyle]="{backgroundColor: getColor(i)}"
+  [ngClass]="{mayor: i >= 4}">
+    {{ count }} clicks
+  </li>
+</ul>
